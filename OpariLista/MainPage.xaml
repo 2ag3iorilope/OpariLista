@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OpariLista.MainPage">
+
+    <ScrollView>
+        <Grid Padding="30,0" ColumnSpacing="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- ListView en la primera columna -->
+            <ListView x:Name="listView" HeightRequest="500"
+          Grid.Row="0"
+          Grid.Column="0"
+          Grid.RowSpan="2"
+          ItemSelected="OnListViewItemSelected">
+                <!-- ITEMSELECTED erabili SELECTEDITEM ez du funtzionatzen-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="10" HorizontalOptions="Start">
+                                <Label Text="{Binding Izena}" 
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Irudiaren kolumna -->
+            <Image x:Name="selectedImage"
+                 Grid.Row="0"
+                 Grid.Column="1"
+                 WidthRequest="250"
+                 HeightRequest="250"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                  />
+            
+            
+            <!-- Aukeratutako opariake rakusteko kolumna -->
+            <Label x:Name="OpariakLabel"
+                Grid.Row="0"
+                FontAttributes="Bold"
+                Grid.Column="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            
+            <!-- Opariak Gehitzeko Botoia -->
+            <Button
+                x:Name="Gehitubuton"
+                Text="Gehitu oparia" 
+                SemanticProperties.Hint="Opariak Gehitzeko botoia"
+                Clicked="OnCounterClicked"
+                FontAttributes="Bold"
+                Grid.Row="1"
+                Grid.Column="0"
+                WidthRequest="150"  
+                HeightRequest="40"
+                BackgroundColor="#AC99EA"
+                TextColor="Black"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"/>
+            
+            <!--Opariak garbitzeko botoia-->
+            <Button x:Name="Kendubutton"
+                Text="KenduOpariak" 
+                SemanticProperties.Hint="Opariak kentzeko botoia"
+                Clicked="DeleteOnClicked"
+                FontAttributes="Bold"
+                Grid.Row="1"
+                Grid.Column="1"
+                WidthRequest="150"
+                BackgroundColor="#AC99EA"
+                TextColor="Black"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                VerticalOptions="Center" />
+            
+            <Button
+                Text="Irten"
+                Clicked="OnExitClicked"
+                FontAttributes="Bold"
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="End"
+                BackgroundColor="#AC99EA"
+                TextColor="Black"
+                WidthRequest="750"
+                HeightRequest="40" />
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
