@@ -74,6 +74,26 @@ namespace OpariLista
                 OpariakLabel.Text = "Opariak garbitu dira berriro aukeratu";
             }
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Android plataforma
+            if (DeviceInfo.Platform == DevicePlatform.Android)
+            {
+                listView.HeightRequest = 600; // Android-en altuera handiagoa
+                selectedImage.WidthRequest = 180; 
+                selectedImage.HeightRequest = 180;
+                
+            }
+            else if (DeviceInfo.Platform == DevicePlatform.WinUI)
+            {
+                listView.HeightRequest = 800; // WinUI-en altuera handiagoa
+                selectedImage.WidthRequest = 250; 
+                selectedImage.HeightRequest = 250;
+            }
+        }
+
         private void OnExitClicked(object sender, EventArgs e)
         {
             Application.Current!.Quit();
@@ -82,6 +102,7 @@ namespace OpariLista
     }
 
 }
+
 public class Produktua
 {
     public string Izena { get; set; }
