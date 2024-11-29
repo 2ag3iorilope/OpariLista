@@ -98,7 +98,7 @@
                 BackgroundColor="#AC99EA"
                 Clicked="OnExitClicked"
                 FontAttributes="Bold"
-                HorizontalOptions="FillAndExpand"
+                HorizontalOptions="Fill"
                 SemanticProperties.Hint="Aplikaziotik Irteteko Botoia"
                 Text="Irten"
                 TextColor="Black"
